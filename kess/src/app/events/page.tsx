@@ -164,12 +164,7 @@ const Timeline = () => {
                       {event.location}
                     </div>
                     
-                    <button className="mt-4 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-medium px-4 py-2 rounded-lg text-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
-                      Learn More
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </button>
+                    
                   </div>
                 </div>
               </div>
