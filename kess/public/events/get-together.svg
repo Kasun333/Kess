@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#E5E7EB"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="400" cy="200" r="150" fill="#1E40AF" opacity="0.1"/>
+  <circle cx="400" cy="200" r="100" fill="#1E40AF" opacity="0.2"/>
+  
+  <!-- People Silhouettes -->
+  <path d="M300 250 L300 350 M280 350 L320 350" stroke="#1E40AF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M400 250 L400 350 M380 350 L420 350" stroke="#1E40AF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M500 250 L500 350 M480 350 L520 350" stroke="#1E40AF" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Text -->
+  <text x="400" y="150" font-family="Arial" font-size="24" fill="#1E40AF" text-anchor="middle">Annual Get-Together</text>
+  <text x="400" y="180" font-family="Arial" font-size="16" fill="#4B5563" text-anchor="middle">Join us for our annual gathering</text>
+</svg> 
