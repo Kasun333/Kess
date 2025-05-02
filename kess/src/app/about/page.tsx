@@ -47,7 +47,7 @@ export default function About() {
     <div className="min-h-screen pt-16 bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-r from-black via-gray-900 to-black text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/gold.jpg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/gold.webp')] opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
