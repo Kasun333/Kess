@@ -15,7 +15,7 @@ export default function About() {
       name: 'Nipun',
       role: 'Vice President',
       year: '21',
-      image: '/nipun.webp',
+      image: '/Nipun.webp',
     },
     {
       name: 'Madushanka',
@@ -33,7 +33,7 @@ export default function About() {
       name: 'Nadeesha',
       role: 'Treasurer',
       year: '20',
-      image: '/team/treasurer.jpg',
+      image: '/Nadeesha.webp',
     },
     {
       name: 'Sandaru',
@@ -97,7 +97,7 @@ export default function About() {
               style={{ position: 'relative', height: '500px', borderRadius: '0.5rem', overflow: 'hidden', border: '2px solid rgba(234, 179, 8, 0.3)' }}
             >
               <Image
-                src="/mission.webp"
+                src="/1.webp"
                 alt="KESS Mission"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"
