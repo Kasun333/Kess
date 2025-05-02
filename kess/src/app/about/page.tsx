@@ -4,11 +4,17 @@ import Image from 'next/image'
 import { motion, HTMLMotionProps } from 'framer-motion'
 
 // Create a typed motion div component
-const MotionDiv = motion.div as React.ComponentType<HTMLMotionProps<"div"> & { 
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-}>;
+const MotionDiv = motion.div as React.ComponentType<
+  HTMLMotionProps<"div"> & {
+    className?: string;
+    style?: React.CSSProperties;
+    children?: React.ReactNode;
+    initial?: any;
+    whileInView?: any;
+    transition?: any;
+    viewport?: any;
+  }
+>;
 
 export default function About() {
   const teamMembers = [
