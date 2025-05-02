@@ -97,7 +97,7 @@ export default function About() {
               style={{ position: 'relative', height: '500px', borderRadius: '0.5rem', overflow: 'hidden', border: '2px solid rgba(234, 179, 8, 0.3)' }}
             >
               <Image
-                src="/about/mission.jpg"
+                src="/mission.webp"
                 alt="KESS Mission"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"
