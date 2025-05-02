@@ -1,20 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { motion, HTMLMotionProps } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-// Create a typed motion div component
-const MotionDiv = motion.div as React.ComponentType<
-  HTMLMotionProps<"div"> & {
-    className?: string;
-    style?: React.CSSProperties;
-    children?: React.ReactNode;
-    initial?: any;
-    whileInView?: any;
-    transition?: any;
-    viewport?: any;
-  }
->;
+const MotionDiv = motion('div')
 
 export default function About() {
   const teamMembers = [
@@ -170,7 +159,7 @@ export default function About() {
       {/* Leadership Team */}
       <section className="py-32 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <MotionDiv 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -182,11 +171,11 @@ export default function About() {
               Meet the dedicated individuals who lead KESS and work tirelessly to support
               our community
             </p>
-          </MotionDiv>
+          </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {teamMembers.map((member, index) => (
-              <MotionDiv
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +205,7 @@ export default function About() {
                   <p className="text-yellow-400 font-medium text-lg mb-1">{member.role}</p>
                   <p className="text-gray-400">Year {member.year}</p>
                 </div>
-              </MotionDiv>
+              </motion.div>
             ))}
           </div>
         </div>
