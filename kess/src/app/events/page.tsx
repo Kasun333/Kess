@@ -10,7 +10,7 @@ const events = [
     date: 'January',
     description:
       'Successfully organized a blood donation camp in collaboration with the National Blood Bank.',
-    image: '/events/blood-donation.jpg',
+    image: '/events/blood donation.webp',
     location: 'Kegalle',
   },
   {
@@ -18,7 +18,7 @@ const events = [
     date: 'April',
     description:
       'Join us for our annual gathering of engineering students and alumni.',
-    image: '/events/get-together.jpg',
+    image: '/events/get together.webp',
     location: 'Kegalle',
   },
   {
