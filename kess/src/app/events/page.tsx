@@ -38,11 +38,11 @@ const events = [
     location: 'Kegalle',
   },
   {
-    title: 'Asala Perahera Dansala',
-    date: 'August',
+    title: 'Poson Perahera Dansala',
+    date: 'June',
     description:
       'Community service initiative during the Asala Perahera festival.',
-    image: '/events/dansala.jpg',
+    image: '/events/dansal.jpg',
     location: 'Kegalle',
   },
   {
