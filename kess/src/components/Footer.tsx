@@ -95,7 +95,7 @@ const Footer = () => {
               <div className="relative w-12 h-12 mr-3">
                 <div className="absolute inset-0 bg-yellow-500/20 rounded-full filter blur-sm"></div>
                 <Image
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt="KESS Logo"
                   width={48}
                   height={48}

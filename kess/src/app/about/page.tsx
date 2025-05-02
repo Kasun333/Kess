@@ -1,7 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, HTMLMotionProps } from 'framer-motion'
+
+// Create a typed motion div component
+const MotionDiv = motion.div as React.ComponentType<HTMLMotionProps<"div"> & { className?: string }>;
 
 export default function About() {
   const teamMembers = [
@@ -89,12 +92,12 @@ export default function About() {
           through knowledge sharing, skill development, and community engagement.
         </p>
       </motion.div>
-      <motion.div 
+      <MotionDiv 
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="hidden md:block" // Hide on mobile, show on md screens and up
+        className="hidden md:block"
         style={{ position: 'relative', height: '500px', borderRadius: '0.5rem', overflow: 'hidden', border: '2px solid rgba(234, 179, 8, 0.3)' }}
       >
         <Image
@@ -103,7 +106,7 @@ export default function About() {
           fill
           className="object-cover hover:scale-105 transition-transform duration-500"
         />
-      </motion.div>
+      </MotionDiv>
     </div>
   </div>
 </section>
@@ -155,60 +158,59 @@ export default function About() {
       </section>
 
       {/* Leadership Team */}
-      {/* Leadership Team */}
-<section className="py-32 bg-gradient-to-b from-black to-gray-900">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="text-center mb-20"
-    >
-      <h2 className="text-5xl font-bold text-yellow-400 mb-8">Our Leadership Team</h2>
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-        Meet the dedicated individuals who lead KESS and work tirelessly to support
-        our community
-      </p>
-    </motion.div>
-    
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-      {teamMembers.map((member, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center group"
-        >
-          {/* Simple Photo Frame without gold effect */}
-          <div className="relative mb-6">
-            {/* Photo container with clean border */}
-            <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gray-800 shadow-lg">
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-          </div>
+      <section className="py-32 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <MotionDiv 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-5xl font-bold text-yellow-400 mb-8">Our Leadership Team</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Meet the dedicated individuals who lead KESS and work tirelessly to support
+              our community
+            </p>
+          </MotionDiv>
           
-          {/* Member Info Card - kept the same */}
-          <div className="text-center bg-gray-900 rounded-xl p-6 w-full shadow-xl border border-yellow-900/30 transform group-hover:translate-y-2 transition-transform duration-500">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              {member.name}
-            </h3>
-            <div className="w-12 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-3"></div>
-            <p className="text-yellow-400 font-medium text-lg mb-1">{member.role}</p>
-            <p className="text-gray-400">Year {member.year}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {teamMembers.map((member, index) => (
+              <MotionDiv
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center group"
+              >
+                {/* Simple Photo Frame without gold effect */}
+                <div className="relative mb-6">
+                  {/* Photo container with clean border */}
+                  <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gray-800 shadow-lg">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                </div>
+                
+                {/* Member Info Card - kept the same */}
+                <div className="text-center bg-gray-900 rounded-xl p-6 w-full shadow-xl border border-yellow-900/30 transform group-hover:translate-y-2 transition-transform duration-500">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {member.name}
+                  </h3>
+                  <div className="w-12 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-3"></div>
+                  <p className="text-yellow-400 font-medium text-lg mb-1">{member.role}</p>
+                  <p className="text-gray-400">Year {member.year}</p>
+                </div>
+              </MotionDiv>
+            ))}
           </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
     </div>
   )
 } 
