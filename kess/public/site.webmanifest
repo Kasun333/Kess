@@ -1,0 +1,23 @@
+{
+  "name": "KESS - Kegalle Engineering Students Society",
+  "short_name": "KESS",
+  "description": "Kegalle Engineering Students Society - Empowering through education and community service",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#eab308",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 
