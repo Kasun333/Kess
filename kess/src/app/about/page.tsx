@@ -68,44 +68,45 @@ export default function About() {
 
       {/* Mission & Vision */}
       <section className="py-32 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              style={{ textAlign: 'center' }}
-            >
-              <h2 className="text-4xl font-bold text-yellow-400 mb-8">Our Mission</h2>
-              <p className="text-lg text-gray-300 mb-12">
-                To create a vibrant community of engineering students who support each other
-                in their academic and professional journeys, while contributing positively
-                to society through various initiatives and programs.
-              </p>
-              <h2 className="text-4xl font-bold text-yellow-400 mb-8">Our Vision</h2>
-              <p className="text-lg text-gray-300">
-                To be the leading student society that nurtures future engineering leaders
-                through knowledge sharing, skill development, and community engagement.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              style={{ position: 'relative', height: '500px', borderRadius: '0.5rem', overflow: 'hidden', border: '2px solid rgba(234, 179, 8, 0.3)' }}
-            >
-              <Image
-                src="/1.webp"
-                alt="KESS Mission"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        style={{ textAlign: 'center' }}
+      >
+        <h2 className="text-4xl font-bold text-yellow-400 mb-8">Our Mission</h2>
+        <p className="text-lg text-gray-300 mb-12">
+          To create a vibrant community of engineering students who support each other
+          in their academic and professional journeys, while contributing positively
+          to society through various initiatives and programs.
+        </p>
+        <h2 className="text-4xl font-bold text-yellow-400 mb-8">Our Vision</h2>
+        <p className="text-lg text-gray-300">
+          To be the leading student society that nurtures future engineering leaders
+          through knowledge sharing, skill development, and community engagement.
+        </p>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="hidden md:block" // Hide on mobile, show on md screens and up
+        style={{ position: 'relative', height: '500px', borderRadius: '0.5rem', overflow: 'hidden', border: '2px solid rgba(234, 179, 8, 0.3)' }}
+      >
+        <Image
+          src="/1.webp"
+          alt="KESS Mission"
+          fill
+          className="object-cover hover:scale-105 transition-transform duration-500"
+        />
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* History */}
       <section className="py-32 bg-gray-900">
@@ -154,57 +155,60 @@ export default function About() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-32 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            style={{ textAlign: 'center', marginBottom: '5rem' }}
-          >
-            <h2 className="text-4xl font-bold text-yellow-400 mb-8">Our Leadership Team</h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Meet the dedicated individuals who lead KESS and work tirelessly to support
-              our community
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                style={{ 
-                  backgroundColor: '#111827',
-                  borderRadius: '0.5rem',
-                  overflow: 'hidden',
-                  border: '1px solid rgba(234, 179, 8, 0.3)',
-                  transition: 'all 0.3s'
-                }}
-              >
-                <div className="relative h-80 w-full bg-gray-800">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-yellow-400 font-medium mb-1">{member.role}</p>
-                  <p className="text-gray-400">Year {member.year}</p>
-                </div>
-              </motion.div>
-            ))}
+      {/* Leadership Team */}
+<section className="py-32 bg-gradient-to-b from-black to-gray-900">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-20"
+    >
+      <h2 className="text-5xl font-bold text-yellow-400 mb-8">Our Leadership Team</h2>
+      <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        Meet the dedicated individuals who lead KESS and work tirelessly to support
+        our community
+      </p>
+    </motion.div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {teamMembers.map((member, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center group"
+        >
+          {/* Simple Photo Frame without gold effect */}
+          <div className="relative mb-6">
+            {/* Photo container with clean border */}
+            <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gray-800 shadow-lg">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+          
+          {/* Member Info Card - kept the same */}
+          <div className="text-center bg-gray-900 rounded-xl p-6 w-full shadow-xl border border-yellow-900/30 transform group-hover:translate-y-2 transition-transform duration-500">
+            <h3 className="text-2xl font-bold text-white mb-2">
+              {member.name}
+            </h3>
+            <div className="w-12 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto mb-3"></div>
+            <p className="text-yellow-400 font-medium text-lg mb-1">{member.role}</p>
+            <p className="text-gray-400">Year {member.year}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
     </div>
   )
 } 
