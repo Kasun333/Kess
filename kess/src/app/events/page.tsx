@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-// Custom SVG icons instead of lucide-react
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -73,26 +72,38 @@ const Timeline = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-gradient-to-b from-gray-50 to-white py-16 px-4 md:px-8 lg:px-16 overflow-hidden">
+    <div className="relative w-full min-h-screen bg-black py-16 px-4 md:px-8 lg:px-16 overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-black opacity-80 z-0"></div>
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-yellow-400 rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-yellow-300 rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+      </div>
+      
       {/* Title */}
-      <div className="text-center mb-16" data-aos="fade-down">
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 text-transparent bg-clip-text">
+      <div className="text-center mb-16 relative z-10" data-aos="fade-down">
+        <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200">
           Our Events
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-4"></div>
+        <div className="w-24 h-0.5 bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 mx-auto mt-4 shadow-lg shadow-yellow-500/20"></div>
       </div>
       
-      {/* Central vertical line with animated glow */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-indigo-400 to-purple-500 opacity-30 blur-sm"></div>
+      {/* Central vertical line with neon glow */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-800 z-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-yellow-400 to-yellow-200 opacity-50 blur-sm"></div>
       </div>
       
-      {/* Timeline dots */}
+      {/* Timeline dots with neon effect */}
       <div className="absolute top-32 left-1/2 transform -translate-x-1/2 h-[calc(100%-8rem)] flex flex-col justify-around z-20">
         {sortedEvents.map((_, index) => (
           <div 
             key={index}
-            className="w-5 h-5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg shadow-purple-300/40 cursor-pointer transform hover:scale-125 transition-transform"
+            className={`w-4 h-4 rounded-full bg-black border border-yellow-400 cursor-pointer transform hover:scale-125 transition-transform duration-300 ${
+              activeEvent === index ? 'ring-2 ring-yellow-300 ring-offset-2 ring-offset-black' : ''
+            }`}
+            style={{
+              boxShadow: activeEvent === index ? '0 0 15px 2px rgba(251, 191, 36, 0.7)' : '0 0 10px 1px rgba(251, 191, 36, 0.3)'
+            }}
             onClick={() => {
               const element = document.getElementById(`event-${index}`);
               if (element) {
@@ -107,9 +118,10 @@ const Timeline = () => {
       {/* Scroll to top button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white p-3 rounded-full z-50 shadow-lg shadow-purple-300/20 transition-all duration-300 transform hover:scale-110"
+        className="fixed bottom-8 right-8 bg-black border border-yellow-400 text-yellow-400 p-3 rounded-full z-50 shadow-lg shadow-yellow-400/20 transition-all duration-300 transform hover:scale-110 hover:shadow-yellow-400/40"
+        style={{ boxShadow: '0 0 15px rgba(251, 191, 36, 0.5)' }}
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
       </button>
@@ -128,16 +140,28 @@ const Timeline = () => {
               data-aos={isLeft ? 'fade-right' : 'fade-left'}
             >
               <div className={`w-full md:w-5/12 ${isLeft ? 'md:mr-16' : 'md:ml-16'}`}>
-                <div className="bg-white rounded-xl border border-gray-100 shadow-xl shadow-gray-200/40 p-6 overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-200/30">
-                  <div className="flex flex-col">
-                    <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent z-10" />
+                <div 
+                  className="relative bg-gray-900 rounded-xl border border-yellow-400/30 overflow-hidden transform transition-all duration-300 hover:-translate-y-1 group"
+                  style={{ boxShadow: '0 10px 30px -15px rgba(251, 191, 36, 0.3)' }}
+                >
+                  {/* Card glow effect on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/5 to-yellow-200/5"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-tr from-yellow-400 to-yellow-200 opacity-20 blur-sm group-hover:opacity-30 transition-opacity duration-500"></div>
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="relative w-full h-48 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
                       <img
                         src={event.image || "/api/placeholder/400/300"}
                         alt={event.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-4 left-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold px-3 py-1 rounded-full text-sm z-20 flex items-center">
+                      <div 
+                        className="absolute top-4 left-4 bg-black text-yellow-400 font-bold px-3 py-1 rounded-full text-sm z-20 flex items-center border border-yellow-400/50"
+                        style={{ boxShadow: '0 0 10px rgba(251, 191, 36, 0.3)' }}
+                      >
                         <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                           <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -148,36 +172,60 @@ const Timeline = () => {
                       </div>
                     </div>
                     
-                    <h3 className="font-bold text-xl text-gray-800 mb-2">
-                      {event.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 text-sm mb-4">
-                      {event.description}
-                    </p>
-                    
-                    <div className="flex items-center text-indigo-500 text-sm">
-                      <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                      {event.location}
+                    <div className="p-6">
+                      <h3 className="font-bold text-xl text-yellow-400 mb-2 group-hover:text-yellow-300 transition-colors">
+                        {event.title}
+                      </h3>
+                      
+                      <p className="text-gray-300 text-sm mb-4">
+                        {event.description}
+                      </p>
+                      
+                      <div className="flex items-center text-yellow-400/80 text-sm">
+                        <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        {event.location}
+                      </div>
                     </div>
-                    
-                    
                   </div>
                 </div>
               </div>
               
               {/* Connection dot with animated ping effect */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 flex items-center justify-center">
-                <div className="absolute w-3 h-3 bg-purple-500 rounded-full"></div>
-                <div className="absolute w-5 h-5 bg-indigo-500 rounded-full animate-ping opacity-75"></div>
+                <div className="absolute w-2 h-2 bg-yellow-400 rounded-full" style={{ boxShadow: '0 0 10px rgba(251, 191, 36, 0.7)' }}></div>
+                <div className="absolute w-4 h-4 bg-yellow-400/50 rounded-full animate-ping opacity-75"></div>
               </div>
             </div>
           );
         })}
       </div>
+
+      {/* Add custom keyframes for animation */}
+      <style jsx>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -30px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 15s infinite alternate;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+      `}</style>
     </div>
   );
 };
