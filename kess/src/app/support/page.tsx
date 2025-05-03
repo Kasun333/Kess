@@ -9,11 +9,11 @@ const DonationComponent = () => {
 
   // Bank account details
   const bankDetails = {
-    accountName: "Engineering Students Association",
-    accountNumber: "0123456789",
+    accountName: "AGNS RANASINGHE,MCS KARUNARATHNA",
+    accountNumber: "94364438",
     bankName: "Bank of Ceylon",
     branch: "Kegalle Branch",
-    swiftCode: "BCEYLKLX",
+    swiftCode: "",
     reference: "ESA Donation"
   };
 
@@ -21,22 +21,22 @@ const DonationComponent = () => {
   const upcomingEvents = [
     {
       title: "Annual Cricket Tournament",
-      goal: 150000,
-      raised: 82500,
+      goal: 30000,
+      raised: 4500,
       description: "Help us organize our annual cricket tournament for engineering students.",
       image: "/events/cricket.jpg"
     },
     {
       title: "Practical Camp 2025",
-      goal: 200000,
-      raised: 45000,
+      goal: 10000,
+      raised: 1000,
       description: "Support hands-on physics practical sessions for A-Level students.",
       image: "/events/practical.jpg"
     },
     {
       title: "Seminar Series",
-      goal: 100000,
-      raised: 70000,
+      goal: 10000,
+      raised: 500,
       description: "Fund our comprehensive seminar program for aspiring engineers.",
       image: "/events/seminar.jpg"
     }
@@ -360,13 +360,13 @@ const DonationComponent = () => {
                    style={{color: neonGold.bright}}>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
-              <span className="text-yellow-200 hover:text-yellow-300 transition-colors">treasurer@kegalleesa.org</span> 
+              <span className="text-yellow-200 hover:text-yellow-300 transition-colors">nadeeshamadushanka44@gmail.com</span> 
               <span className="mx-2 text-gray-600">•</span> 
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                    style={{color: neonGold.bright}}>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              <span className="text-yellow-200 hover:text-yellow-300 transition-colors">+94 71 234 5678</span>
+              <span className="text-yellow-200 hover:text-yellow-300 transition-colors">+94 71 942 6076</span>
             </p>
           </div>
         </div>
