@@ -97,21 +97,21 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="text-4xl font-bold text-blue-600 mb-4">2018</div>
+              <div className="text-4xl font-bold text-blue-600 mb-4">2009</div>
               <h3 className="text-xl font-semibold mb-2">Foundation</h3>
               <p className="text-gray-600">
                 KESS was established to support engineering students in Kegalle
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="text-4xl font-bold text-blue-600 mb-4">2020</div>
+              <div className="text-4xl font-bold text-blue-600 mb-4">2015</div>
               <h3 className="text-xl font-semibold mb-2">Growth</h3>
               <p className="text-gray-600">
                 Expanded programs and initiatives to serve more students
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg">
-              <div className="text-4xl font-bold text-blue-600 mb-4">2024</div>
+              <div className="text-4xl font-bold text-blue-600 mb-4">2022</div>
               <h3 className="text-xl font-semibold mb-2">Innovation</h3>
               <p className="text-gray-600">
                 Launching new initiatives and expanding community impact
