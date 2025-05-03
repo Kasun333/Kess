@@ -133,7 +133,7 @@ export default function About() {
 
 
             {[
-              { year: '2009', title: 'Foundation', desc: 'KESS was established to support engineering students in Kegalle' },
+              { year: '2010', title: 'Foundation', desc: 'KESS was established to support engineering students in Kegalle' },
               { year: '2015', title: 'Growth', desc: 'Expanded programs and initiatives to serve more students' },
               { year: '2022', title: 'Innovation', desc: 'Launching new initiatives and expanding community impact' }
             ].map((item, index) => (
