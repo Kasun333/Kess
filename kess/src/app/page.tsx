@@ -16,13 +16,13 @@ export default function Home() {
   // State for the video loaded status
   const [videoLoaded, setVideoLoaded] = useState(false);
   
-  // Tomorrow's date for the Get-Together event
-  const getTogether = {
-    title: 'KESS Annual Get-Together',
-    date: new Date('2025-05-03T09:00:00'), // Using tomorrow's date
-    description: 'Join us for our annual gathering of engineering students and alumni - a day of networking, fun activities, and strengthening our community bonds.',
-    image: '/events/get together.webp',
-    location: 'Galigamuwa Shans Hotel',
+  // KESS Inspire - Mock exam series event
+  const kessInspire = {
+    title: 'KESS Inspire - Mock Exam Series',
+    date: new Date('2025-09-25T09:00:00'), // September 25, 2025
+    description: 'A comprehensive mock exam series designed specifically for A-Level students. Get the practice and confidence you need to excel in your final examinations with expert guidance and detailed feedback.',
+    image: '/exam.jpg', // You may need to add this image
+    location: 'Kegalle',
   };
   
   // Featured events that showcase your impact
@@ -71,8 +71,16 @@ export default function Home() {
     },
   ];
 
-  // Upcoming events
+  // Upcoming events (moved the Get-Together here)
   const upcomingEvents = [
+    {
+      title: 'KESS Annual Get-Together',
+      date: 'May 2025',
+      description:
+        'Join us for our annual gathering of engineering students and alumni - a day of networking, fun activities, and strengthening our community bonds.',
+      image: '/events/get together.webp',
+      location: 'Galigamuwa Shans Hotel',
+    },
     {
       title: 'Poson Perahera Dansala',
       date: 'June 2025',
@@ -191,7 +199,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Event - Tomorrow's Get Together */}
+      {/* Featured Event - KESS Inspire Mock Exam Series */}
       <section id="featured-event" className="py-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-yellow-500/10 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-yellow-500/10 rounded-full filter blur-3xl"></div>
@@ -222,17 +230,17 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10 opacity-70"></div>
                 <div className="absolute top-4 left-4 bg-yellow-500 text-black font-semibold px-4 py-2 rounded-lg shadow-lg z-20">
-                  {new Date() > getTogether.date ? 'HAPPENING NOW' : 'TODAY'}
+                  {new Date() > kessInspire.date ? 'HAPPENING NOW' : 'UPCOMING'}
                 </div>
                 <Image 
-                  src={getTogether.image}
-                  alt={getTogether.title}
+                  src={kessInspire.image}
+                  alt={kessInspire.title}
                   width={800}
                   height={500}
                   className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700 rounded-xl"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                  <p className="text-yellow-400 text-sm mb-1">{getTogether.location}</p>
+                  <p className="text-yellow-400 text-sm mb-1">{kessInspire.location}</p>
                 </div>
               </MotionDiv>
               
@@ -243,17 +251,17 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <h3 className="text-3xl font-bold">{getTogether.title}</h3>
-                <p className="text-gray-300 text-lg leading-relaxed">{getTogether.description}</p>
+                <h3 className="text-3xl font-bold">{kessInspire.title}</h3>
+                <p className="text-gray-300 text-lg leading-relaxed">{kessInspire.description}</p>
                 
                 <div className="w-full">
                   <p className="text-yellow-400 font-medium mb-3">Event Starts In:</p>
-                  <CountdownTimer targetDate={getTogether.date} />
+                  <CountdownTimer targetDate={kessInspire.date} />
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 mt-6 pt-6 border-t border-gray-700 w-full">
-                  {new Date() <= getTogether.date ? (
-                    <Link href="/events/get-together" className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-yellow-500/20 transition-all duration-300">
+                  {new Date() <= kessInspire.date ? (
+                    <Link href="/events/kess-inspire" className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-yellow-500/20 transition-all duration-300">
                       Register Now
                     </Link>
                   ) : (
@@ -378,50 +386,46 @@ export default function Home() {
             </MotionDiv>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {upcomingEvents.map((event, index) => (
               <MotionDiv 
                 key={index}
                 className="group bg-black/50 backdrop-blur-sm border border-yellow-500/20 rounded-xl overflow-hidden hover:border-yellow-500/40 transition-all duration-500 shadow-lg hover:shadow-yellow-500/10"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
-                <div className="md:flex">
-                  <div className="md:w-2/5 relative overflow-hidden">
-                    <Image 
-                      src={event.image}
-                      alt={event.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent opacity-60 md:bg-gradient-to-b"></div>
+                <div className="relative overflow-hidden h-48">
+                  <Image 
+                    src={event.image}
+                    alt={event.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                  <div className="absolute top-4 left-4 bg-yellow-500/10 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium border border-yellow-500/30">
+                    {event.date}
                   </div>
-                  
-                  <div className="md:w-3/5 p-6">
-                    <div className="inline-block bg-yellow-500/10 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium mb-4 border border-yellow-500/30">
-                      {event.date}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors duration-300">{event.title}</h3>
-                    <p className="text-gray-400 mb-5">{event.description}</p>
-                    <div className="flex items-center gap-2 text-gray-500 text-sm">
-                      <svg className="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                      </svg>
-                      <span>{event.location}</span>
-                    </div>
-                    <div className="mt-6">
-                      <Link href={`/events/${event.title.toLowerCase().replace(/\s+/g, '-')}`} className="text-yellow-400 hover:text-yellow-300 font-medium flex items-center">
-                        Event details
-                        <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                      </Link>
-                    </div>
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors duration-300">{event.title}</h3>
+                  <p className="text-gray-400 mb-5">{event.description}</p>
+                  <div className="flex items-center gap-2 text-gray-500 text-sm mb-4">
+                    <svg className="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span>{event.location}</span>
                   </div>
+                  <Link href={`/events/${event.title.toLowerCase().replace(/\s+/g, '-')}`} className="text-yellow-400 hover:text-yellow-300 font-medium flex items-center">
+                    Event details
+                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  </Link>
                 </div>
               </MotionDiv>
             ))}
